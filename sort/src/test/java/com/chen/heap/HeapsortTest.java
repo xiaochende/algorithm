@@ -1,16 +1,23 @@
-package com.chen.sort;
+package com.chen.heap;
 
 import org.junit.Test;
 
-public class HeapsortTest {
+import java.util.PriorityQueue;
 
+public class HeapsortTest {
+    /**
+     * java自带优先队列实现
+     * PriorityQueue p = new PriorityQueue();
+     */
     int des[]={1,2,3,4,4,11,23,23,33,44,66,88,999};
     int sourec[]={1,2,3,4,66,33,44,999,88,23,11,23,4};
     @Test
     public void heapsort() {
+        PriorityQueue p;
         int arr[] =sourec;
         Heapsort heapsort = new Heapsort(arr);
         heapsort.sort();
+        heapsort.print();
         assert equalsArr(heapsort.arr , des);
     }
 

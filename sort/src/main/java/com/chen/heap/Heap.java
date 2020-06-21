@@ -1,8 +1,11 @@
-package com.chen.sort;
+package com.chen.heap;
 
 import java.util.Arrays;
 
-public class Heapsort {
+/**
+ * 堆定义
+ */
+public class Heap {
     /**
      * 最大堆 arr[parent(i)] >= arr[i]
      * 最小堆 arr[parent(i)] <= arr[i]
@@ -47,33 +50,14 @@ public class Heapsort {
         }
     }
 
-    /**
-     * 构建最大堆
-     */
-    private void buildMaxHeap(){
-        for(int i = this.size / 2 ; i > -1; i--){
-            maxHeapify(i);
-        }
-    }
-
-    /**
-     * 排序
-     */
-    public void sort(){
-        buildMaxHeap();
-        for(int i = (this.size-1) ; i > -1; i--){
-            swap(0,i);
-            this.size--;
-            maxHeapify(0);
-        }
-    }
-
-    public Heapsort(int[] arr) {
+    public Heap(int[] arr) {
         this.arr = arr;
         this.size = arr.length;
     }
+    public Heap(){}
+
     public void print(){
-        Arrays.stream(this.arr).forEach(e->System.out.print(e+" "));
+        Arrays.stream(arr).forEach(e->System.out.print(e+" "));
         System.out.println();
     }
 }
